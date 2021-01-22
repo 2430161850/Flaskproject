@@ -1,11 +1,14 @@
-from flask import Flask
+from flask import Flask, url_for, render_template
 
 instance = Flask(__name__)
 
 
 @instance.route("/")
 def index():
-    return 'Flask框架的首页'
+    name = "张大炮"
+    age = '18'
+    sex = '女'
+    return render_template('index.html', **locals())
 
 
 @instance.route("/<int:pk>/")
