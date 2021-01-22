@@ -1,7 +1,3 @@
-from flask import Flask, url_for, render_template
-
-instance = Flask(__name__)
-
 book = {
     "name": "国士无双",
     "author": "骁骑校",
@@ -24,23 +20,7 @@ book = {
          }
     ]
 }
+lista = book["chapter"]
 
-
-@instance.route("/")
-def index():
-    articles = book["chapter"]
-    return render_template('index.html', **locals())
-
-
-@instance.route("/<int:pk>/")
-def detail(pk):
-    article = None
-    lista = book["chapter"]
-    for i in lista:
-        if i["id"] == pk:
-            article =i
-    return render_template('detail.html', **locals())
-
-
-if __name__ == '__main__':
-    instance.run(host='192.168.11.10', port='8890', debug=True, )
+for i in lista:
+    print(i["id"])

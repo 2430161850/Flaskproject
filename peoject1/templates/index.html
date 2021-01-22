@@ -1,17 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="{{ url_for('static' ,filename='css/index.css') }}">
-</head>
-<body>
-<img src="{{ url_for('static',filename='img/timg.jpg') }}" alt="">
-<div class="cener">
-	<h1>我是一只大松鼠</h1>
-	<h2>我的名字叫:{{name}}</h2>
-	<h3>我的年龄是:{{age}}</h3>
-	<h2>我的性别:{{sex}}</h2>
+{% extends 'base.html' %}
+{% block title %}
+{% endblock %}
+{% block lib %}
+{% endblock %}
+{% block body %}
+    <div class="list-group">
+      {% for i in articles %}
+        {% if i. %}
+  <a href="/{{i.id}}" class="list-group-item">{{i.name}}</a>
+      {% endfor %}
 </div>
-</body>
-</html>
+{% endblock %}
+
